@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+.header-img{
+    margin: 2% auto;
+    width: 60%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-img-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(245, 222, 179, 0.7);
+    margin: 5% auto ;
+    width: 60%;
+    border: black solid 2px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main{
+    height: 100vh;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #5091DD 0%, #030617 100%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ChatInput{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 1% auto;
+    padding: 2%;
+    background-color: rgba(111, 101, 109, 0.71);
 }
-
-.App-link {
-  color: #61dafb;
+.chatInputBox{
+    background-color: lightblue;
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    height: 50px;
+    transition: width 1s;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chatInputBox:focus{
+    border: 3px solid #555;
+    width: 100%;
 }
