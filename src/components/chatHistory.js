@@ -1,10 +1,13 @@
 import React from "react";
-import Message from "./massage";
+import Massage from "./massage";
 class ChatHistory extends React.Component{
     render() {
+        let messages = this.props.chatHistory.map( msg => {
+            return <Massage key={msg.timeStamp} message={msg}/>
+        });
         return (
-            <div>
-
+            <div className={'ChatHistory'}>
+                {messages}
             </div>
         );
     }

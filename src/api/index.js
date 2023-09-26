@@ -1,25 +1,20 @@
-const socket = new WebSocket('wss://localhost:9000/ws');
+// socket.js
+const socket = new WebSocket("ws://localhost:8080/ws");
 
-let connect = (cb) =>{
-    console.log('connecting..')
-
-    socket.onopen = () =>{
-        console.log('connected successfully!!')
-    }
-    socket.onmessage = (msg) =>{
-        console.log('Massage from websocket: ',msg)
-    }
-    socket.onclose = (event) =>{
-        console.log('socket closed :',event)
-    }
-
-    socket.onerror = (error) => {
-        console.log('socket error: ',error)
-    }
+socket.onopen = () => {
+    console.log("WebSocket connection established");
 };
 
-let sendMsg = (msg) =>{
-    socket.send(msg)
-}
+socket.onmessage = (event) => {
+    console.log("Received message:", event.data);
+};
 
-export {connect , sendMsg};
+socket.onerror = (error) => {
+    console.error("WebSocket error:", error);
+};
+
+socket.onclose = () => {
+    console.log("WebSocket connection closed");
+};
+
+export default socket;

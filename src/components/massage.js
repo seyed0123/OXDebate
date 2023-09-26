@@ -3,20 +3,17 @@ import React from "react";
 class Message extends React.Component{
     constructor(props) {
         super(props);
-        let tmp = JSON.parse(this.props.message)
         this.state={
-            message :tmp
+            message :this.props.message
         }
     }
-
     render() {
         return (
-            <div className={'message-wrapper'}>
-                <p className={'message'}>{this.state.message.body}</p>
+            <div className={this.state.message.type==='message'?'message-wrapper':'response-wrapper'}>
+                <h2 className={this.state.message.type==='message'?'message':'response'}>{this.state.message.message}</h2>
             </div>
         );
     }
-
 }
 
 export default Message;

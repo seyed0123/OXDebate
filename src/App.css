@@ -1,6 +1,7 @@
 .header-img{
     margin: 2% auto;
     width: 60%;
+    border-radius: 10px;
 }
 .header-img-wrapper{
     display: flex;
@@ -11,16 +12,8 @@
     width: 60%;
     border: black solid 2px;
 }
-.main{
-    height: 100vh;
-    height: 100%;
+body{
     background: radial-gradient(ellipse at bottom, #5091DD 0%, #030617 100%);
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
 }
 .ChatInput{
     display: flex;
@@ -29,6 +22,7 @@
     margin: 1% auto;
     padding: 2%;
     background-color: rgba(111, 101, 109, 0.71);
+    border-radius: 10px;
 }
 .chatInputBox{
     background-color: lightblue;
@@ -38,8 +32,34 @@
     width: 300px;
     height: 50px;
     transition: width 1s;
+    border-radius: 10px;
 }
 .chatInputBox:focus{
     border: 3px solid #555;
     width: 100%;
+}
+.message{
+    background-color: #6351dc;
+    margin-left: 5%;
+    padding: 10px 20px ;
+    border-radius: 5px;
+}
+.message-wrapper{
+    display: flex;
+    justify-content: left;
+}
+.response{
+    background-color: #e4e0ff;
+    margin-right: 5%;
+    padding: 10px 20px ;
+    border-radius: 5px;
+}
+.response-wrapper{
+    display: flex;
+    justify-content: right;
+}
+.ChatHistory{
+    border: rgba(0, 0, 0, 0.19) solid 1px;
+    margin: 2% 2%;
+    box-shadow: black 1px 2px 10px;
 }
