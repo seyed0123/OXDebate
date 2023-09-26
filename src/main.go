@@ -1,38 +1,47 @@
 package main
 
 import (
-	"OXDebate/pkg/websocket"
-	"fmt"
+	"log"
 	"net/http"
+
+	"github.com/gorilla/websocket"
 )
 
-func main() {
-	setupRoutes()
-	http.ListenAndServe(":9000", nil)
+var upgrader = websocket.Upgrader{
+	CheckOrigin: func(r *http.Request) bool {
+		return true
+	},
 }
 
-func setupRoutes() {
-	pool := websocket.NewPool()
-	go pool.Start()
-
-	http.HandleFunc("/ws", func(writer http.ResponseWriter, request *http.Request) {
-		serveWS(pool, writer, request)
-	})
-}
-
-func serveWS(pool *websocket.Pool, w http.ResponseWriter, r *http.Request) {
-	fmt.Println("websocket endpoint reached")
-
-	conn, err := websocket.Upgrade(w, r)
+func wsHandler(w http.ResponseWriter, r *http.Request) {
+	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
+		return
 	}
-	client := &websocket.Client{
-		Conn: conn,
-		Pool: pool,
+	defer conn.Close()
+
+	for {
+		// Read message from client
+		_, msg, err := conn.ReadMessage()
+		if err != nil {
+			log.Println(err)
+			break
+		}
+
+		// Process message
+		log.Printf("Received message: %s", msg)
+
+		// Send message back to client
+		err = conn.WriteMessage(websocket.TextMessage, msg)
+		if err != nil {
+			log.Println(err)
+			break
+		}
 	}
+}
 
-	pool.Register <- client
-
-	client.Read()
+func main() {
+	http.HandleFunc("/ws", wsHandler)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
