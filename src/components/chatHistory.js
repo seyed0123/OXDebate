@@ -6,6 +6,7 @@ class ChatHistory extends React.Component{
             return <Massage key={msg.timeStamp} message={msg}/>
         });
         return (
+            messages.length===0 ?<p/>:
             <div className={'ChatHistory'}>
                 {messages}
             </div>
