@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Modak&family=Young+Serif&display=swap');
 .header-img{
     margin: 2% auto;
     width: 60%;
@@ -11,6 +12,9 @@
     margin: 5% auto ;
     width: 60%;
     border: black solid 2px;
+}
+.header-text{
+    font-family: 'Young Serif', serif;;
 }
 body{
     background: radial-gradient(ellipse at bottom, #0077B6 0%, #030617 100%);
@@ -40,6 +44,7 @@ body{
     width: 100%;
 }
 .message{
+    font-family: 'Dela Gothic One', cursive;
     background-color: #00B4D8;
     margin-left: 5%;
     padding: 10px 20px ;
@@ -50,6 +55,7 @@ body{
     justify-content: left;
 }
 .response{
+    font-family: 'Modak', cursive;;
     background-color: #CAF0F8;
     margin-right: 5%;
     padding: 10px 20px ;

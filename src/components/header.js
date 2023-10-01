@@ -6,8 +6,8 @@ class Header extends React.Component{
             <div>
 
                 <header className={'header-img-wrapper'}>
-                    <h1 align={'center'}>OXDebate</h1>
-                    <img src={require('../assets/Wallpaper (411).jpg')} className={'header-img'}/>
+                    <h1 align={'center'} className={'header-text'}>OXDebate</h1>
+                    <img src={require('../assets/icon.jpg')} className={'header-img'}/>
                 </header>
             </div>
         );
