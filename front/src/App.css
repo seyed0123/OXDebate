@@ -55,6 +55,7 @@ body{
     justify-content: left;
 }
 .response{
+    font-size: medium;
     font-family:  cursive;
     background-color: #CAF0F8;
     margin-right: 5%;
