@@ -2,17 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-resty/resty/v2"
 	"github.com/gorilla/websocket"
 	"io/ioutil"
 	"log"
 	"net/http"
-)
-
-var key string
-
-const (
-	apiEndpoint = "https://api.openai.com/v1/chat/completions"
+	"net/url"
 )
 
 var upgrader = websocket.Upgrader{
@@ -41,7 +35,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 		log.Printf("Received message: %s", msg)
 
 		if string(msg) != "Hello, server!" {
-			msg = []byte(APICall(string(msg)))
+			msg = []byte(sendMessage(string(msg)))
 		}
 		err = conn.WriteMessage(websocket.TextMessage, msg)
 		if err != nil {
@@ -52,30 +46,28 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	apiKey, err := ioutil.ReadFile("src/config.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	key = string(apiKey)
-	fmt.Println(key)
+	message := "Hello from Go"
+
+	response := sendMessage(message)
+	fmt.Println("Response from server:", response)
 	http.HandleFunc("/ws", wsHandler)
 	log.Fatal(http.ListenAndServe(":9000", nil))
 
 }
-func APICall(msg string) string {
-	client := resty.New()
-	resp, err := client.R().
-		SetHeader("Content-Type", "application/json").
-		SetBody(map[string]interface{}{
-			"input_text": msg,
-		}).
-		Post("http://localhost:5000/mingpt")
-
+func sendMessage(message string) string {
+	resp, err := http.PostForm("http://localhost:8080/process",
+		url.Values{"message": {message}})
 	if err != nil {
-		log.Printf("Failed to send the request: %v\n", err)
-		return "Failed to send the request"
+		fmt.Println(err)
+		return "there is an err"
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err)
+		return "there is an err"
 	}
 
-	body := resp.Body()
 	return string(body)
 }
