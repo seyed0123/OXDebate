@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# OXDebate Application
+<img src="shots/OXDebate.jpg" width="50%" align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the repository of our ChatGPT web application, a marriage between the power of artificial intelligence and the human-like interaction of a chat interface. This application employs an open-source GPT model, providing a conversational AI experience that allows us to answer follow-up questions, admit mistakes, challenge incorrect premises, and reject inappropriate requests.
 
-## Available Scripts
+Built using a combination of React, GoLang, and Python, this application represents a comprehensive full-stack solution. React is employed to create a user-friendly and interactive front-end, GoLang handles server-side operations, and Python manages the GPT model server.
 
-In the project directory, you can run:
+In the initial stages of the project, the plan was to use OpenAI's API. However, to overcome certain limitations and to provide a more flexible solution, the decision was made to switch to an open-source GPT model. The result is an application that is capable of handling real-time chat with the GPT model, offering a dynamic and engaging user experience.
 
-### `npm start`
+Whether you're a developer interested in the mechanics of integrating a GPT model into a full-stack application, or a user fascinated by the capabilities of AI in chat interfaces, we welcome you to explore this project further.
+## demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![wait for it to load](shots/debate.gif)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Built With
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" width="20%" placeholeder="react">
+<img src="https://www.edureka.co/blog/wp-content/uploads/2018/09/Golang-Logo-Golang-Tutorial-Edureka.jpg" width="20%">
+<img src="https://images.ctfassets.net/mrop88jh71hl/55rrbZfwMaURHZKAUc5oOW/9e5fe805eb03135b82e962e92169ce6d/python-programming-language.png" width="20%" > 
 
-### `npm test`
+React - goLang - python
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup Introduction
+To set up the repository on your local machine, follow these steps carefully:
 
-### `npm run build`
+### Cloning the repository
+Clone the repository to your local machine using the following command:
+```bash
+git clone https://github.com/seyed0123/OXDebate.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend Setup
+Navigate to the server directory and install the backend dependencies:
+```golang
+export GO111MODULE="on"
+go mod tidy
+go run src/main.go
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend Setup
+Navigate to the client directory, install the frontend dependencies and start the front-end server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd front
+npm install
+npm start
+```
+### GPT Model Server Setup
+run the `gpt.ipynb` file that is installing the packages and starting the server.
 
-### `npm run eject`
+GPT 4 model is used from this [repo](https://github.com/xtekky/gpt4free) and thanks for their collaborator's  hard work 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
+Type in the input field and click on the send button to interact with the GPT model. The responses are displayed in the webpage.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page. Don't hesitate to drop any suggestions or improvements you have in mind.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# shots:
+![](shots/Shot%200001.png)
+![](shots/Shot%200002.png)

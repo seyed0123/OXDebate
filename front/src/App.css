@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Modak&family=Young+Serif&display=swap');
+.header-img{
+    margin: 2% auto;
+    width: 60%;
+    border-radius: 10px;
+}
+.header-img-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #90E0EF;
+    margin: 5% auto ;
+    width: 60%;
+    border: black solid 2px;
+}
+.header-text{
+    font-family: 'Young Serif', serif;;
+}
+body{
+    background: radial-gradient(ellipse at bottom, #0077B6 0%, #030617 100%);
+}
+.ChatInput{
+    gap: 2%;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 1% auto;
+    padding: 2%;
+    background-color: #ffd166;
+    border-radius: 10px;
+}
+.chatInputBox{
+    background-color: lightblue;
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    height: 50px;
+    transition: width 1s;
+    border-radius: 10px;
+}
+.chatInputBox:focus{
+    border: 3px solid #555;
+    width: 100%;
+}
+.message{
+    font-family: 'Dela Gothic One', cursive;
+    background-color: #00B4D8;
+    margin-left: 5%;
+    padding: 10px 20px ;
+    border-radius: 5px;
+}
+.message-wrapper{
+    display: flex;
+    justify-content: left;
+}
+.response{
+    font-size: medium;
+    font-family:  cursive;
+    background-color: #CAF0F8;
+    margin-right: 5%;
+    padding: 10px 20px ;
+    border-radius: 5px;
+}
+.response-wrapper{
+    display: flex;
+    justify-content: right;
+}
+.ChatHistory{
+    border: rgba(0, 0, 0, 0.19) solid 1px;
+    margin: 2% 2%;
+    box-shadow: black 1px 2px 10px;
+}
+:root {
+    --hue: 223;
+    --bg: hsl(var(--hue),10%,90%);
+    --fg: hsl(var(--hue),10%,10%);
+    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+.pl,
+.pl__worm {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+.pl {
+    animation-name: bump;
+    animation-timing-function: linear;
+    width: 8em;
+    height: 8em;
+}
+.pl__ring {
+    stroke: hsla(var(--hue),10%,10%,0.1);
+    transition: stroke 0.3s;
+}
+.pl__worm {
+    animation-name: worm;
+    animation-timing-function: cubic-bezier(0.42,0.17,0.75,0.83);
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(var(--hue),10%,10%);
+        --fg: hsl(var(--hue),10%,90%);
+    }
+    .pl__ring {
+        stroke: hsla(var(--hue),10%,90%,0.1);
+    }
+}
+
+/* Animations */
+@keyframes bump {
+    from,
+    42%,
+    46%,
+    51%,
+    55%,
+    59%,
+    63%,
+    67%,
+    71%,
+    74%,
+    78%,
+    81%,
+    85%,
+    88%,
+    92%,
+    to { transform: translate(0,0); }
+    44% { transform: translate(1.33%,6.75%); }
+    53% { transform: translate(-16.67%,-0.54%); }
+    61% { transform: translate(3.66%,-2.46%); }
+    69% { transform: translate(-0.59%,15.27%); }
+    76% { transform: translate(-1.92%,-4.68%); }
+    83% { transform: translate(9.38%,0.96%); }
+    90% { transform: translate(-4.55%,1.98%); }
+}
+@keyframes worm {
+    from { stroke-dashoffset: 10; }
+    25% { stroke-dashoffset: 295; }
+    to { stroke-dashoffset: 1165; }
+}
+.loading-wrapper{
+    margin:5% auto;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 500;
+    line-height: 1;
+    padding: 1em 1.5em;
+    position: relative;
+    transition: filter 0.3s;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+button:active {
+    filter: brightness(0.9);
+}
+
+button > span {
+    display: block;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    z-index: 1;
+}
+
+button:hover > span {
+    transform: scale(1.05);
+}
+
+button:active > span {
+    transform: scale(0.95);
+}
+
+button > svg {
+    fill: #76c893;
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+}
+
+button > svg > path {
+    transition: 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+button:hover > svg > path {
+    d: path("M0,0 C0,-5 100,-5 100,0 C105,0 105,100 100,100 C100,105 0,105 0,100 C-5,100 -5,0 0,0");
+}
+
+button:active > svg > path {
+    d: path("M0,0 C30,10 70,10 100,0 C95,30 95,70 100,100 C70,90 30,90 0,100 C5,70 5,30 0,0");
+}
