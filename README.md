@@ -3,7 +3,7 @@
 
 Welcome to the repository of our ChatGPT web application, a marriage between the power of artificial intelligence and the human-like interaction of a chat interface. This application employs an open-source GPT model, providing a conversational AI experience that allows us to answer follow-up questions, admit mistakes, challenge incorrect premises, and reject inappropriate requests.
 
-Built using a combination of React, GoLang, and Python, this application represents a comprehensive full-stack solution. React is employed to create a user-friendly and interactive front-end, GoLang handles server-side operations, and Python manages the GPT model server.
+Built using a combination of React, GoLang, and Python, this application represents a comprehensive full-stack solution. React is employed to create a user-friendly and interactive front end, GoLang handles server-side operations, and Python manages the GPT model server.
 
 In the initial stages of the project, the plan was to use OpenAI's API. However, to overcome certain limitations and to provide a more flexible solution, the decision was made to switch to an open-source GPT model. The result is an application that is capable of handling real-time chat with the GPT model, offering a dynamic and engaging user experience.
 
@@ -37,7 +37,7 @@ go run src/main.go
 ```
 
 ### Frontend Setup
-Navigate to the client directory, install the frontend dependencies and start the front-end server:
+Navigate to the client directory, install the frontend dependencies, and start the front-end server:
 
 ```bash
 cd front
@@ -45,16 +45,17 @@ npm install
 npm start
 ```
 ### GPT Model Server Setup
-run the `gpt.ipynb` file that is installing the packages and starting the server.
+Run the `gpt.ipynb` file that installs the packages and starts the server.
 
 GPT 4 model is used from this [repo](https://github.com/xtekky/gpt4free) and thanks for their collaborator's  hard work 
 
 ## Usage
-Type in the input field and click on the send button to interact with the GPT model. The responses are displayed in the webpage.
+Type in the input field and click on the send button to interact with the GPT model. The responses are displayed on the webpage.
 
 ## Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page. Don't hesitate to drop any suggestions or improvements you have in mind.
 
+<strong> NOTE: There is a problem connecting Python and Golang in the socket and I am glad to find someone who can help me correct this bug </strong>
 ## License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
